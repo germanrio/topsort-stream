@@ -81,6 +81,10 @@ Nodes.prototype = {
     },
 
     getResolvedNodes: function (node) {
+        if (node.resolved) {
+            return [];
+        }
+
         var dependencies = node.dependencies;
         var resolvedNodes = [];
         var canResolve = _(node.dependencies).every(function (dep) {
